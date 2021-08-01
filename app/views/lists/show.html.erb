@@ -1,0 +1,20 @@
+<div class="container text-center" >
+ <div class="button-group">
+  <%= link_to 'delete this list', list_path(@list), method: :delete, class: 'btn btn-primary rounded', data: { confirm: 'Are you sure you want to delete this list?' } %> 
+  <%= link_to 'add a movie/bookmark', new_list_bookmark_path(@list), class: 'btn btn-primary rounded' %>
+  <%= link_to 'Back to list', root_path, class:"btn btn-primary rounded" %>
+ </div>
+
+<h1><%= @list.name %></h1>
+<% @list.movies.each do |movie| %>
+<h3><strong><%=movie.title %></strong></h3>
+<p class="font-italic"><%= movie.overview  %></p>
+<p><strong>Rating:<%= movie.rating %></strong></p>
+<%= link_to 'delete this movie', list_path(movie.id), method: :delete, class: 'btn btn-secondary rounded', data: { confirm: 'Are you sure you want to delete this list?' } %> 
+<br>
+<br>
+<% end %>
+</div>
+
+
+
